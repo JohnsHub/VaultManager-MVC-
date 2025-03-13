@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Create / Edit Vault";
+}
+
+@model VaultManagerV1.Models.Vault
+
+<div class="text-center">
+    <h2>@(Model.Id == 0 ? "Create Vault" : "Edit Vault")</h2>
+</div>
+
+<form asp-action="VaultForm" asp-action="Home">
+    <input class="form-control" type="hidden" placeholder="0" asp-for="Id" />
+
+    <label class="mt-4">Name</label>
+    <input class="form-control" type="text" placeholder="Name" asp-for="Name" />
+
+    <lable class="mt-4">Location</lable>
+    <input class="form-control" typeof="text" placeholder="Location" asp-for="Location" />
+
+    <button class="btn btn-primary mt-4" type="submit">Save</button>
+    <a asp-action="Vault" class="btn btn-secondary mt-4">Cancel</a>
+</form>

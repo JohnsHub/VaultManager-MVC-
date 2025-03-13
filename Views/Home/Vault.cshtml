@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Vaults";
+}
+
+@model List<Vault>
+
+<div class="text-center">
+    <h1 class="display-4">Vaults</h1>
+    <br />
+    <h2>Total Vaults: @ViewData["TotalVaults"]</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Location
+                </th>
+                <th>
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                foreach (var vault in Model)
+                {
+                    <tr>
+                        <td>
+                            @vault.Id
+                        </td>
+                         <td>
+                            @vault.Name
+                        </td>
+                        <td>
+                            @vault.Location
+                        </td>
+                        <td>
+                            <a asp-action="CreateEditVault" asp-route-id="@vault.Id">Edit</a>
+                            <a asp-action="DeleteVault" asp-route-id="@vault.Id">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
