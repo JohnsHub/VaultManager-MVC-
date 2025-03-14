@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Create or Edit a Dweller";
+}
+
+@model VaultManagerV1.Models.Dweller
+
+<div class="text-center">
+    <h2>@(Model.Id == 0 ? "Create Dweller" : "Edit Dweller")</h2>
+</div>
+
+<form asp-action="VaultForm" asp-controller="Home">
+    <input type="hidden" asp-for="Id" />
+
+    <!-- VaultId should be a dropdown instead of a text input -->
+    <label class="mt-4">Vault</label>
+    <select class="form-control" asp-for="VaultId" asp-items="ViewBag.Vaults">
+        <option value="">Select a Vault</option>
+    </select>
+
+    <label class="mt-4">Name</label>
+    <input class="form-control" type="text" placeholder="Name" asp-for="Name" required />
+
+    <label class="mt-4">Role</label>
+    <input class="form-control" type="text" placeholder="Role" asp-for="Role" required />
+
+    <label class="mt-4">Vault Location</label>
+    <input class="form-control" type="text" placeholder="Location" asp-for="Vault.Location" disabled />
+
+    <button class="btn btn-primary mt-4" type="submit">Save</button>
+    <a asp-action="Vault" class="btn btn-secondary mt-4">Cancel</a>
+</form>

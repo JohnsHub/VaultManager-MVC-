@@ -1,22 +1,75 @@
+/* Define Vault-Tec Blue and Vault-Tec Yellow color */
+:root {
+    --vault-tec-blue: #004F9F;
+    --vault-tec-yellow: #FFB81C;
+}
+
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+}
+
+body, html {
+    font-family: 'Bebas Neue', sans-serif;
+    background-color: var(--vault-tec-blue); /* Vault-Tec Blue */
+    color: white; /* Text color to ensure contrast with the blue background */
+    /* Ensure the whole page uses flexbox */
+    margin: 0; /* Remove default margin */
+    height: 100%; /* Make sure the body and html take full viewport height */
+}
+
+h1, h2, h3, .navbar-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: bold;
+}
+
+/* Apply Vault-Tec Blue and Yellow to various elements */
+.navbar {
+    background-color: var(--vault-tec-blue);
+    border-bottom: 2px solid #ffffff; /* White line under the navbar */
+}
+
+.nav-link {
+    color: var(--vault-tec-blue);
+}
+
+.navbar-brand {
+    color: var(--vault-tec-yellow); /* Set the brand color to yellow */
+}
+
+.btn-primary {
+    background-color: var(--vault-tec-blue);
+    border-color: var(--vault-tec-blue);
+}
+
+.btn-secondary {
+    background-color: var(--vault-tec-yellow);
+    border-color: var(--vault-tec-yellow);
+}
+
+/* Adding hover effect to navbar links */
+.nav-link:hover {
+    color: var(--vault-tec-yellow); /* Change link color to yellow when hovered */
+}
+
+.underline {
+    text-decoration: underline;
 }

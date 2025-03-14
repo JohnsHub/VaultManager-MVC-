@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Diagnostics;
 using VaultManagerV1.Models;
 
@@ -49,8 +50,6 @@ namespace VaultManagerV1.Controllers
             return View(vaultInDb);
         }
 
-
-
         public IActionResult DeleteVault(int id)
         {
             var vaultinDb = _context.Vaults.SingleOrDefault(vaults => vaults.Id == id);
@@ -82,6 +81,22 @@ namespace VaultManagerV1.Controllers
 
             _context.SaveChanges();
             return RedirectToAction("Vault");
+        }
+
+        public IActionResult Dwellers()
+        {
+            return View();
+        }
+
+        public IActionResult CreateEditDweller(int? id)
+        {
+            return View();
+        }
+
+
+        public IActionResult About()
+        {
+            return View();
         }
 
         public IActionResult Privacy()
