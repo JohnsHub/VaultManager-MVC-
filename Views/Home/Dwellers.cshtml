@@ -1,3 +1,86 @@
 ﻿@{
     ViewData["Title"] = "Dweller Page";
 }
+
+@model List<VaultManagerV1.Models.Dweller>
+
+<div class="container mt-4">
+    <h2 class="text-center text-warning">Dwellers</h2>
+
+    <div class="d-flex justify-content-end mb-3">
+        <a class="btn btn-success" asp-action="CreateEditDweller" asp-controller="Home">Add Dweller</a>
+    </div>
+
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Role</th>
+                <th>Vault</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var dweller in Model)
+            {
+                <tr>
+                    <td>@dweller.Id</td>
+                    <td>@dweller.Name</td>
+                    <td>@dweller.Role</td>
+                    <td>@(dweller.Vault != null ? dweller.Vault.Name : "Unknown")</td>
+                    <td>
+                        <!-- Edit Button (Opens Form) -->
+                        <button class="btn btn-primary btn-sm" onclick="editDweller(@dweller.Id, '@dweller.Name', '@dweller.Role', @dweller.VaultId)">Edit</button>
+
+                        <!-- Delete Button -->
+                        <form asp-action="DeleteDweller" asp-controller="Home" method="post" onsubmit="return confirm('Are you sure?');" class="d-inline">
+                            <input type="hidden" name="id" value="@dweller.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Hidden Form for Editing -->
+<div id="editForm" class="container mt-4" style="display: none;">
+    <h3 class="text-warning">Edit Dweller</h3>
+    <form asp-action="SaveDweller" asp-controller="Home" method="post">
+        <input type="hidden" id="editId" name="Id" />
+
+        <label>Name</label>
+        <input type="text" class="form-control" id="editName" name="Name" required />
+
+        <label class="mt-2">Role</label>
+        <input type="text" class="form-control" id="editRole" name="Role" required />
+
+        <label class="mt-2">Vault</label>
+        <select class="form-control" id="editVaultId" name="VaultId">
+            @foreach (var vault in ViewBag.Vaults)
+            {
+                <option value="@vault.Id">@vault.Name</option>
+            }
+        </select>
+
+        <button type="submit" class="btn btn-primary mt-3">Save Changes</button>
+        <button type="button" class="btn btn-secondary mt-3" onclick="hideEditForm()">Cancel</button>
+    </form>
+</div>
+
+<!-- JavaScript for Editing -->
+<script>
+    function editDweller(id, name, role, vaultId) {
+        document.getElementById('editId').value = id;
+        document.getElementById('editName').value = name;
+        document.getElementById('editRole').value = role;
+        document.getElementById('editVaultId').value = vaultId;
+        document.getElementById('editForm').style.display = 'block';
+    }
+
+    function hideEditForm() {
+        document.getElementById('editForm').style.display = 'none';
+    }
+</script>
