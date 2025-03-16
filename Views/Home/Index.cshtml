@@ -2,14 +2,22 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4 mt-5 underline">CREATE YOUR OWN VAULT TEC VAULT!</h1>
-    <a asp-controller="Home" asp-action="Vault" class="btn btn-primary btn-lg mt-5">Vaults</a>
-    <a asp-controller="Home" asp-action="CreateEditVault" class="btn btn-secondary btn-lg mt-5">Create / Edit Vault</a>
-    <a asp-controller="Home" asp-action="Dwellers" class="btn btn-outline-primary btn-lg mt-5">Dwellers</a>
-    <a asp-controller="Home" asp-action="CreateEditDweller" class="btn btn-secondary btn-lg mt-5">Create / Edit Dwellers</a>
-</div>
+<div class="container my-5">
+    <!-- Hero Section with a background image for added visual appeal -->
+    <div class="jumbotron text-center text-white" style="background-image: url('https://source.unsplash.com/1600x400/?vault,underground'); background-size: cover; background-position: center;">
+        <h1 class="display-4 font-weight-bold">Design Your Own Vault-Tec Vault!</h1>
+        <p class="lead">Manage your vaults and dwellers with cutting-edge tools and an immersive interface.</p>
+        <hr class="my-4 bg-light">
+        <div class="d-flex flex-wrap justify-content-center">
+            <a asp-controller="Home" asp-action="Vault" class="btn btn-primary btn-lg m-2">Vaults</a>
+            <a asp-controller="Home" asp-action="CreateEditVault" class="btn btn-secondary btn-lg m-2">Create/Edit Vault</a>
+            <a asp-controller="Home" asp-action="Dwellers" class="btn btn-outline-primary btn-lg m-2">Dwellers</a>
+            <a asp-controller="Home" asp-action="CreateEditDweller" class="btn btn-secondary btn-lg m-2">Create/Edit Dwellers</a>
+        </div>
+    </div>
 
-<div class="image-container">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Vault-Tec_Logo.svg" alt="Vault Tec Logo" class="img-fluid d-block mx-auto mt-5" />
+    <!-- Vault-Tec Logo -->
+    <div class="image-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/12/Vault-Tec_Logo.svg" alt="Vault Tec Logo" class="img-fluid d-block mx-auto" style="max-width: 600px; margin-top: 80px;" />
+    </div>
 </div>

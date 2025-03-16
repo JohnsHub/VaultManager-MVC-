@@ -1,11 +1,18 @@
-/* Define Vault-Tec Blue and Vault-Tec Yellow color */
+/* Define Vault-Tec Blue and Vault-Tec Yellow colors and Pip-Boy variables */
 :root {
     --vault-tec-blue: #004F9F;
     --vault-tec-yellow: #FFB81C;
+    --pipboy-black: #000;
+    --pipboy-green: #0f0;
+    --pipboy-overlay-opacity-start: 0.4;
+    --pipboy-overlay-opacity-end: 0.6;
 }
 
+/* Base font size and HTML settings */
 html {
     font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -14,62 +21,176 @@ html {
     }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+/* Global styles for html and body with an enhanced Fallout-themed background */
+body, html {
+    font-family: 'Bebas Neue', sans-serif;
+    /* Textured metal background with a dark gradient overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://www.publicdomainpictures.net/pictures/280000/velka/metal-texture-background-1562524988B7T.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    height: 100%;
+}
+
+    /* Subtle pulsing overlay for atmosphere */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+        pointer-events: none;
+        animation: pulse 15s infinite alternate;
+    }
+
+@keyframes pulse {
+    from {
+        opacity: var(--pipboy-overlay-opacity-start);
+    }
+
+    to {
+        opacity: var(--pipboy-overlay-opacity-end);
+    }
+}
+
+/* Flexbox layout to push footer to the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Focus styles for interactive elements */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
     box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-    position: relative;
-    min-height: 100%;
-}
-
-body {
-    margin-bottom: 60px;
-}
-
-body, html {
-    font-family: 'Bebas Neue', sans-serif;
-    background-color: var(--vault-tec-blue); /* Vault-Tec Blue */
-    color: white; /* Text color to ensure contrast with the blue background */
-    /* Ensure the whole page uses flexbox */
-    margin: 0; /* Remove default margin */
-    height: 100%; /* Make sure the body and html take full viewport height */
-}
-
+/* Headings and navbar-brand styling */
 h1, h2, h3, .navbar-brand {
-    font-family: 'Bebas Neue', sans-serif;
     font-weight: bold;
+    text-shadow: 0 0 5px var(--vault-tec-yellow);
 }
 
-/* Apply Vault-Tec Blue and Yellow to various elements */
-.navbar {
-    background-color: var(--vault-tec-blue);
-    border-bottom: 2px solid #ffffff; /* White line under the navbar */
-}
-
-.nav-link {
-    color: var(--vault-tec-blue);
-}
-
-.navbar-brand {
-    color: var(--vault-tec-yellow); /* Set the brand color to yellow */
-}
-
+/* Button styling with neon glow effects */
 .btn-primary {
     background-color: var(--vault-tec-blue);
     border-color: var(--vault-tec-blue);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .btn-secondary {
     background-color: var(--vault-tec-yellow);
     border-color: var(--vault-tec-yellow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Adding hover effect to navbar links */
-.nav-link:hover {
-    color: var(--vault-tec-yellow); /* Change link color to yellow when hovered */
+.btn:hover, .btn:focus {
+    box-shadow: 0 0 8px var(--vault-tec-yellow);
 }
 
-.underline {
-    text-decoration: underline;
+/* Updated Navbar styling for a cohesive look */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Dark, translucent background */
+    border-bottom: 2px solid var(--vault-tec-yellow);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    padding: 8px 0;
+}
+
+/* Navbar Brand with Fallout image */
+.navbar-brand {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    color: var(--vault-tec-yellow) !important;
+    text-shadow: 0 0 5px var(--vault-tec-yellow);
+    transition: text-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .navbar-brand::before {
+        content: "";
+        display: inline-block;
+        background: url('https://upload.wikimedia.org/wikipedia/commons/1/12/Vault-Tec_Logo.svg') no-repeat center center;
+        background-size: contain;
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .navbar-brand:hover {
+        text-shadow: 0 0 12px var(--vault-tec-yellow);
+    }
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--vault-tec-yellow) !important;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+    .navbar-nav .nav-item .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--vault-tec-yellow);
+        transition: width 0.3s ease;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: white !important;
+        transform: translateY(-2px);
+    }
+
+        .navbar-nav .nav-item .nav-link:hover::after {
+            width: 100%;
+        }
+
+/* Main container margin */
+.container {
+    margin-top: 30px;
+}
+
+/* Footer styling with semi-transparent background and neon border */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    text-align: center;
+    border-top: 3px solid var(--vault-tec-yellow);
+}
+
+/* Optional: Pip-Boy specific container for themed sections */
+.pipboy-container {
+    background-color: var(--pipboy-black);
+    color: var(--pipboy-green);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    border: 3px solid var(--pipboy-green);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--pipboy-green);
+    margin: 30px auto;
+    max-width: 800px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--pipboy-green);
+    }
+
+    to {
+        box-shadow: 0 0 15px var(--pipboy-green);
+    }
 }

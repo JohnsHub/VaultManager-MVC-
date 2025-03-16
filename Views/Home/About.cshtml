@@ -1,45 +1,73 @@
 ﻿@{
     ViewData["Title"] = "About Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Vault Manager</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <style>
-        body {
-            background-color: #0a3d62; /* Fallout Vault Blue */
-            color: #f4c20d; /* Fallout Yellow */
-        }
-        .about-container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-        }
-        h1, h2 {
+<!-- Inline CSS for Pip Boy About Section -->
+<style>
+    .pipboy-about-container {
+        background-color: #000; /* Pip Boy black background */
+        color: #0f0; /* Neon green text */
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        border: 3px solid #0f0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #0f0;
+        text-align: center;
+        margin: 30px auto;
+        max-width: 800px;
+    }
+
+        .pipboy-about-container h1,
+        .pipboy-about-container h2 {
             text-decoration: underline;
+            text-shadow: 0 0 5px #0f0;
         }
-    </style>
-</head>
-<body>
-    <div class="container about-container">
+
+        .pipboy-about-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .pipboy-about-container ul li::before {
+                content: "✔ ";
+                color: #0f0;
+                margin-right: 5px;
+            }
+
+        .pipboy-about-container a.btn {
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #0f0;
+            color: #0f0;
+            background-color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+            .pipboy-about-container a.btn:hover {
+                background-color: #0f0;
+                color: #000;
+            }
+</style>
+
+<div class="container">
+    <div class="pipboy-about-container">
         <h1>About Vault Manager</h1>
-        <p>Welcome to Vault Manager! This is a Fallout Shelter-inspired app where you can manage vaults and dwellers effectively.</p>
+        <p>Welcome to Vault Manager! This Fallout Shelter–inspired app allows you to manage vaults and dwellers with a true Pip Boy experience.</p>
+
         <h2>Features</h2>
-        <ul class="list-unstyled">
-            <li>✔ Add, Edit, and Delete Vaults</li>
-            <li>✔ Manage Dwellers and Assign Roles</li>
-            <li>✔ In-memory Database for Fast Performance</li>
+        <ul>
+            <li>Add, Edit, and Delete Vaults</li>
+            <li>Manage Dwellers and Assign Roles</li>
+            <li>In-memory Database for Fast Performance</li>
         </ul>
+
         <h2>Our Mission</h2>
-        <p>To create the ultimate vault simulation experience where you can oversee and manage a thriving community.</p>
-        <a href="/" class="btn btn-warning mt-3">Back to Home</a>
+        <p>To create the ultimate vault simulation experience where you can oversee and manage a thriving community in a retro-futuristic style.</p>
+
+        <a href="/" class="btn">Back to Home</a>
     </div>
-</body>
-</html>
+</div>

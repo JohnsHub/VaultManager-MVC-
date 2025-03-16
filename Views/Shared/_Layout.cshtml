@@ -14,19 +14,23 @@
         <nav class="navbar mx-auto navbar-expand-lg navbar-dark bg-primary">
             <div class="container">
                 <a class="navbar-brand fw-bold text-warning mx-auto" asp-area="" asp-controller="Home" asp-action="Index">VAULT MANAGER</a>
-
                 <div class="navbar-nav d-flex justify-content-center w-100">
                     <li class="nav-item mx-2"><a class="nav-link" asp-controller="Home" asp-action="Vault">Vaults</a></li>
                     <li class="nav-item mx-2"><a class="nav-link" asp-controller="Home" asp-action="Dwellers">Dwellers</a></li>
                     <li class="nav-item mx-2"><a class="nav-link" asp-controller="Home" asp-action="About">About</a></li>
+                    <li class="nav-item mx-2"><a class="nav-link" asp-controller="Home" asp-action="Contact">FAQ / Help or Contact</a></li>
                 </div>
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <!-- New custom wrapper -->
+    <div class="content-wrapper">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
     </div>
 
     <footer class="border-top footer text-muted">
@@ -34,6 +38,7 @@
             &copy; 2025 - Vault Manager - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

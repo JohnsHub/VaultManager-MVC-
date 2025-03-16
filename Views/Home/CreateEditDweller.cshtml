@@ -4,28 +4,76 @@
 
 @model VaultManagerV1.Models.Dweller
 
-<div class="text-center">
-    <h2>@(Model.Id == 0 ? "Create Dweller" : "Edit Dweller")</h2>
+<!-- Inline CSS for Pip Boy styling -->
+<style>
+    .pipboy-container {
+        background-color: #000; /* Black background */
+        color: #0f0; /* Neon green text */
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        border: 3px solid #0f0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #0f0;
+        margin: 30px auto;
+        max-width: 600px;
+    }
+
+        .pipboy-container label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        .pipboy-container input,
+        .pipboy-container select {
+            width: 100%;
+            padding: 8px;
+            background-color: #000;
+            color: #0f0;
+            border: 1px solid #0f0;
+            border-radius: 3px;
+        }
+
+        .pipboy-container .btn {
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #0f0;
+            color: #0f0;
+            background-color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+            .pipboy-container .btn:hover {
+                background-color: #0f0;
+                color: #000;
+            }
+</style>
+
+<div class="container">
+    <div class="pipboy-container">
+        <div class="text-center">
+            <h2>@(Model.Id == 0 ? "Create Dweller" : "Edit Dweller")</h2>
+        </div>
+
+        <form asp-action="SaveDweller" asp-controller="Home" method="post">
+            <input type="hidden" asp-for="Id" />
+
+            <label asp-for="VaultId">Vault</label>
+            <select class="form-control" asp-for="VaultId" asp-items="ViewBag.Vaults">
+                <option value="">Select a Vault</option>
+            </select>
+
+            <label asp-for="Name">Name</label>
+            <input class="form-control" type="text" placeholder="Name" asp-for="Name" required />
+
+            <label asp-for="Role">Role</label>
+            <input class="form-control" type="text" placeholder="Role" asp-for="Role" required />
+
+            <button class="btn" type="submit">Save</button>
+            <a asp-action="Dwellers" class="btn">Cancel</a>
+        </form>
+    </div>
 </div>
-
-<form asp-action="VaultForm" asp-controller="Home">
-    <input type="hidden" asp-for="Id" />
-
-    <!-- VaultId should be a dropdown instead of a text input -->
-    <label class="mt-4">Vault</label>
-    <select class="form-control" asp-for="VaultId" asp-items="ViewBag.Vaults">
-        <option value="">Select a Vault</option>
-    </select>
-
-    <label class="mt-4">Name</label>
-    <input class="form-control" type="text" placeholder="Name" asp-for="Name" required />
-
-    <label class="mt-4">Role</label>
-    <input class="form-control" type="text" placeholder="Role" asp-for="Role" required />
-
-    <label class="mt-4">Vault Location</label>
-    <input class="form-control" type="text" placeholder="Location" asp-for="Vault.Location" disabled />
-
-    <button class="btn btn-primary mt-4" type="submit">Save</button>
-    <a asp-action="Vault" class="btn btn-secondary mt-4">Cancel</a>
-</form>

@@ -4,19 +4,82 @@
 
 @model VaultManagerV1.Models.Vault
 
-<div class="text-center">
-    <h2>@(Model.Id == 0 ? "Create Vault" : "Edit Vault")</h2>
+<!-- Inline CSS for Pip Boy styling -->
+<style>
+    /* Container styling to mimic a console screen */
+    .pipboy-container {
+        background-color: #000;
+        color: #0f0;
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        border: 3px solid #0f0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #0f0;
+        margin: 20px auto;
+    }
+    /* Header styling */
+    .pipboy-header {
+        text-align: center;
+        margin-bottom: 20px;
+        text-shadow: 0 0 5px #0f0;
+    }
+    /* Form styling */
+    .pipboy-form label {
+        display: block;
+        margin-top: 15px;
+        margin-bottom: 5px;
+    }
+
+    .pipboy-form input {
+        width: 100%;
+        padding: 8px;
+        background-color: #000;
+        color: #0f0;
+        border: 1px solid #0f0;
+        border-radius: 3px;
+    }
+    /* Button styling */
+    .pipboy-btn {
+        font-family: 'Courier New', Courier, monospace;
+        border: 1px solid #0f0;
+        color: #0f0;
+        background-color: #000;
+        padding: 10px 20px;
+        margin: 10px 5px 0 0;
+        text-decoration: none;
+        display: inline-block;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .pipboy-btn:hover {
+            background-color: #0f0;
+            color: #000;
+        }
+</style>
+
+<div class="container pipboy-container" style="max-width: 600px;">
+    <!-- Header Section -->
+    <div class="pipboy-header">
+        <h2>@(Model.Id == 0 ? "Create Vault" : "Edit Vault")</h2>
+    </div>
+
+    <!-- Form Section -->
+    <form asp-action="VaultForm" method="post" class="pipboy-form">
+        <input type="hidden" asp-for="Id" />
+
+        <label asp-for="Name">Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Name" />
+
+        <label asp-for="Location">Location</label>
+        <input asp-for="Location" class="form-control" placeholder="Location" />
+
+        <div class="mt-4">
+            <button type="submit" class="pipboy-btn">
+                <i class="bi bi-save"></i> Save
+            </button>
+            <a asp-action="Vault" class="pipboy-btn">
+                <i class="bi bi-x-circle"></i> Cancel
+            </a>
+        </div>
+    </form>
 </div>
-
-<form asp-action="VaultForm" asp-action="Home">
-    <input class="form-control" type="hidden" placeholder="0" asp-for="Id" />
-
-    <label class="mt-4">Name</label>
-    <input class="form-control" type="text" placeholder="Name" asp-for="Name" />
-
-    <lable class="mt-4">Location</lable>
-    <input class="form-control" typeof="text" placeholder="Location" asp-for="Location" />
-
-    <button class="btn btn-primary mt-4" type="submit">Save</button>
-    <a asp-action="Vault" class="btn btn-secondary mt-4">Cancel</a>
-</form>

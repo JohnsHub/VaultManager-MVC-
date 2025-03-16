@@ -118,7 +118,6 @@ namespace VaultManagerV1.Controllers
             return View(dweller);
         }
 
-
         [HttpPost]
         public IActionResult SaveDweller(Dweller model)
         {
@@ -142,7 +141,19 @@ namespace VaultManagerV1.Controllers
             return RedirectToAction("Dwellers"); // Redirect to Dwellers page, not Vaults
         }
 
+        public IActionResult DeleteDweller(int id)
+        {
+            var dwellerinDb = _context.Dwellers.FirstOrDefault(vaults => vaults.Id == id);
+            _context.Dwellers.Remove(dwellerinDb);
+            _context.SaveChanges();
+            return RedirectToAction("Dwellers");
+        }
+
         public IActionResult About()
+        {
+            return View();
+        }
+        public IActionResult Contact()
         {
             return View();
         }
