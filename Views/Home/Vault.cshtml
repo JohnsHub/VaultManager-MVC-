@@ -22,23 +22,30 @@
         margin-bottom: 20px;
         text-shadow: 0 0 5px #0f0;
     }
+
+        .pipboy-header h1,
+        .pipboy-header h2 {
+            text-decoration: underline; /* Underline both h1 and h2 */
+        }
     /* Table styling */
     .pipboy-table {
         width: 100%;
         border-collapse: collapse;
         margin-bottom: 20px;
     }
-    .pipboy-table th,
-    .pipboy-table td {
-        border: 1px solid #0f0;
-        padding: 10px;
-        text-align: center;
-    }
-    .pipboy-table th {
-        background-color: #111;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+
+        .pipboy-table th,
+        .pipboy-table td {
+            border: 1px solid #0f0;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .pipboy-table th {
+            background-color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     /* Button styling */
     .pipboy-btn {
         font-family: 'Courier New', Courier, monospace;
@@ -51,10 +58,11 @@
         display: inline-block;
         transition: background-color 0.3s ease, color 0.3s ease;
     }
-    .pipboy-btn:hover {
-        background-color: #0f0;
-        color: #000;
-    }
+
+        .pipboy-btn:hover {
+            background-color: #0f0;
+            color: #000;
+        }
 </style>
 
 <div class="container my-5 pipboy-container">

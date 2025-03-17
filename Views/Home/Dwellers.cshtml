@@ -104,7 +104,7 @@
     <table class="pipboy-table">
         <thead>
             <tr>
-                <th>ID</th>
+                <!-- Removed the ID header -->
                 <th>Name</th>
                 <th>Role</th>
                 <th>Vault</th>
@@ -115,7 +115,7 @@
             @foreach (var dweller in Model)
             {
                 <tr>
-                    <td>@dweller.Id</td>
+                    <!-- Removed the ID cell -->
                     <td>@dweller.Name</td>
                     <td>@dweller.Role</td>
                     <td>@(dweller.Vault != null ? dweller.Vault.Name : "Unknown")</td>

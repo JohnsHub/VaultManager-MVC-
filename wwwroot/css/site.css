@@ -97,43 +97,31 @@ h1, h2, h3, .navbar-brand {
     box-shadow: 0 0 8px var(--vault-tec-yellow);
 }
 
-/* Updated Navbar styling for a cohesive look */
+/* Updated Navbar styling: white background with dark grey text */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.8); /* Dark, translucent background */
-    border-bottom: 2px solid var(--vault-tec-yellow);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.7);
+    background-color: white; /* White background */
+    border-bottom: 2px solid var(--vault-tec-yellow); /* Accent border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
     padding: 8px 0;
 }
 
-/* Navbar Brand with Fallout image */
 .navbar-brand {
     font-size: 2.2rem;
     letter-spacing: 1px;
-    color: var(--vault-tec-yellow) !important;
-    text-shadow: 0 0 5px var(--vault-tec-yellow);
+    color: #333333 !important; /* Dark grey text */
     transition: text-shadow 0.3s ease;
     display: inline-flex;
     align-items: center;
 }
 
-    .navbar-brand::before {
-        content: "";
-        display: inline-block;
-        background: url('https://upload.wikimedia.org/wikipedia/commons/1/12/Vault-Tec_Logo.svg') no-repeat center center;
-        background-size: contain;
-        width: 40px;
-        height: 40px;
-        margin-right: 10px;
-    }
-
     .navbar-brand:hover {
-        text-shadow: 0 0 12px var(--vault-tec-yellow);
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     }
 
 .navbar-nav .nav-item .nav-link {
     font-size: 1.2rem;
     font-weight: bold;
-    color: var(--vault-tec-yellow) !important;
+    color: #333333 !important; /* Dark grey text */
     position: relative;
     transition: color 0.3s ease, transform 0.3s ease;
 }
@@ -145,12 +133,12 @@ h1, h2, h3, .navbar-brand {
         left: 0;
         width: 0;
         height: 2px;
-        background: var(--vault-tec-yellow);
+        background: #333333; /* Dark grey underline */
         transition: width 0.3s ease;
     }
 
     .navbar-nav .nav-item .nav-link:hover {
-        color: white !important;
+        color: #555555 !important; /* Slightly lighter grey on hover */
         transform: translateY(-2px);
     }
 
