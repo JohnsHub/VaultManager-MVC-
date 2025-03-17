@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "About Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Inline CSS for Pip Boy About Section -->
+<style>
+    .pipboy-about-container {
+        background-color: #000; /* Pip Boy black background */
+        color: #0f0; /* Neon green text */
+        font-family: 'Courier New', Courier, monospace;
+        padding: 20px;
+        border: 3px solid #0f0;
+        border-radius: 5px;
+        box-shadow: 0 0 10px #0f0;
+        text-align: center;
+        margin: 30px auto;
+        max-width: 800px;
+    }
+
+        .pipboy-about-container h1,
+        .pipboy-about-container h2 {
+            text-decoration: underline;
+            text-shadow: 0 0 5px #0f0;
+        }
+
+        .pipboy-about-container ul {
+            list-style: none;
+            padding: 0;
+        }
+
+            .pipboy-about-container ul li::before {
+                content: "✔ ";
+                color: #0f0;
+                margin-right: 5px;
+            }
+
+        .pipboy-about-container a.btn {
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid #0f0;
+            color: #0f0;
+            background-color: #000;
+            padding: 10px 20px;
+            text-decoration: none;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-top: 15px;
+            display: inline-block;
+        }
+
+            .pipboy-about-container a.btn:hover {
+                background-color: #0f0;
+                color: #000;
+            }
+</style>
+
+<div class="container">
+    <div class="pipboy-about-container">
+        <h1>About Vault Manager</h1>
+        <p>Welcome to Vault Manager! This Fallout Shelter–inspired app allows you to manage vaults and dwellers with a true Pip Boy experience.</p>
+
+        <h2>Features</h2>
+        <ul>
+            <li>Add, Edit, and Delete Vaults</li>
+            <li>Manage Dwellers and Assign Roles</li>
+            <li>In-memory Database for Fast Performance</li>
+        </ul>
+
+        <h2>Our Mission</h2>
+        <p>To create the ultimate vault simulation experience where you can oversee and manage a thriving community in a retro-futuristic style.</p>
+
+        <a href="/" class="btn">Back to Home</a>
+    </div>
+</div>

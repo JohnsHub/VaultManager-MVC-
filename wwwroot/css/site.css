@@ -1,22 +1,184 @@
+/* Define Vault-Tec Blue and Vault-Tec Yellow colors and Pip-Boy variables */
+:root {
+    --vault-tec-blue: #004F9F;
+    --vault-tec-yellow: #FFB81C;
+    --pipboy-black: #000;
+    --pipboy-green: #0f0;
+    --pipboy-overlay-opacity-start: 0.4;
+    --pipboy-overlay-opacity-end: 0.6;
+}
+
+/* Base font size and HTML settings */
 html {
-  font-size: 14px;
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+    }
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* Global styles for html and body with an enhanced Fallout-themed background */
+body, html {
+    font-family: 'Bebas Neue', sans-serif;
+    /* Textured metal background with a dark gradient overlay */
+    background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('https://www.publicdomainpictures.net/pictures/280000/velka/metal-texture-background-1562524988B7T.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+    margin: 0;
+    height: 100%;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+    /* Subtle pulsing overlay for atmosphere */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+        pointer-events: none;
+        animation: pulse 15s infinite alternate;
+    }
+
+@keyframes pulse {
+    from {
+        opacity: var(--pipboy-overlay-opacity-start);
+    }
+
+    to {
+        opacity: var(--pipboy-overlay-opacity-end);
+    }
 }
 
+/* Flexbox layout to push footer to the bottom */
 body {
-  margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* Focus styles for interactive elements */
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus,
+.form-control:focus,
+.form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+/* Headings and navbar-brand styling */
+h1, h2, h3, .navbar-brand {
+    font-weight: bold;
+    text-shadow: 0 0 5px var(--vault-tec-yellow);
+}
+
+/* Button styling with neon glow effects */
+.btn-primary {
+    background-color: var(--vault-tec-blue);
+    border-color: var(--vault-tec-blue);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-secondary {
+    background-color: var(--vault-tec-yellow);
+    border-color: var(--vault-tec-yellow);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover, .btn:focus {
+    box-shadow: 0 0 8px var(--vault-tec-yellow);
+}
+
+/* Updated Navbar styling: white background with dark grey text */
+.navbar {
+    background-color: white; /* White background */
+    border-bottom: 2px solid var(--vault-tec-yellow); /* Accent border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    padding: 8px 0;
+}
+
+.navbar-brand {
+    font-size: 2.2rem;
+    letter-spacing: 1px;
+    color: #333333 !important; /* Dark grey text */
+    transition: text-shadow 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+    .navbar-brand:hover {
+        text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    }
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333333 !important; /* Dark grey text */
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+    .navbar-nav .nav-item .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #333333; /* Dark grey underline */
+        transition: width 0.3s ease;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+        color: #555555 !important; /* Slightly lighter grey on hover */
+        transform: translateY(-2px);
+    }
+
+        .navbar-nav .nav-item .nav-link:hover::after {
+            width: 100%;
+        }
+
+/* Main container margin */
+.container {
+    margin-top: 30px;
+}
+
+/* Footer styling with semi-transparent background and neon border */
+footer {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px 0;
+    text-align: center;
+    border-top: 3px solid var(--vault-tec-yellow);
+}
+
+/* Optional: Pip-Boy specific container for themed sections */
+.pipboy-container {
+    background-color: var(--pipboy-black);
+    color: var(--pipboy-green);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    border: 3px solid var(--pipboy-green);
+    border-radius: 5px;
+    box-shadow: 0 0 10px var(--pipboy-green);
+    margin: 30px auto;
+    max-width: 800px;
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px var(--pipboy-green);
+    }
+
+    to {
+        box-shadow: 0 0 15px var(--pipboy-green);
+    }
 }
