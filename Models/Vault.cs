@@ -1,4 +1,4 @@
-﻿namespace VaultManagerV1.Models
+namespace VaultManagerV1.Models
 {
     public class Vault
     {
@@ -6,7 +6,7 @@
         public string Name { get; set; } = string.Empty;
         public string Location { get; set; } = string.Empty;
 
-        // Navigation Property
+        // Navigation Property (One-to-many)
         public List<Dweller> Dwellers { get; set; } = new();
     }
 
