@@ -30,32 +30,6 @@ This project demonstrates the ability to build a full-stack, secure, themed web 
 
 ---
 
-## Getting Started
-
-### Prerequisites
-
-- .NET 6 SDK or later
-- A code editor (Visual Studio 2022, Rider, or Visual Studio Code)
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-username/vault-manager.git
-   cd vault-manager
-   ```
-2. **Restore dependencies**
-   ```bash
-   dotnet restore
-   ```
-3. **Run the application**
-   ```bash
-   dotnet run
-   ```
-   Navigate to `https://localhost:5001` in your browser.
-
----
-
 ## Features & Usage
 
 1. **Homepage & Navigation**  
